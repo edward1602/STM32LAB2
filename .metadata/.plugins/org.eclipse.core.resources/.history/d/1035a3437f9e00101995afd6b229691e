@@ -135,24 +135,20 @@ void updateClockBuffer(){
 
 const int MAX_LED_MATRIX = 8;
 int index_led_matrix = 0;
+
+// Character 'A' pattern for 8x8 LED matrix (column-wise)
+// Each byte represents one column, bit 0 = row 0, bit 7 = row 7
 uint8_t matrix_buffer[8] = {
-    0x00,  // Column 0: 00000000
-    0x0C,  // Column 1: 00001100
-    0x1E,  // Column 2: 00011110
-    0x3C,  // Column 3: 00111100
-    0x1E,  // Column 4: 00011110
-    0x0C,  // Column 5: 00001100
-    0x00,  // Column 6: 00000000
-    0x00   // Column 7: 00000000
+    0x00,  // Column 0: 00000000 (        )
+    0x7C,  // Column 1: 01111100 (  ****  )
+    0x12,  // Column 2: 00010010 (  *  *  )
+    0x11,  // Column 3: 00010001 ( *   *  )
+    0x11,  // Column 4: 00010001 ( *   *  )
+    0x12,  // Column 5: 00010010 (  *  *  )
+    0x7C,  // Column 6: 01111100 (  ****  )
+    0x00   // Column 7: 00000000 (        )
 };
 
-void moveAnimation(){
-    uint8_t tmp = matrix_buffer[7];
-    for(int i = 7; i > 0; i--){
-        matrix_buffer[i] = matrix_buffer[i-1];
-    }
-    matrix_buffer[0] = tmp;
-}
 void updateLEDMatrix(int index){
     HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, GPIO_PIN_SET);
     HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, GPIO_PIN_SET);
@@ -247,7 +243,6 @@ int main(void)
   setTimer2(5);
   setTimer3(100);
   setTimer4(5); 
-  setTimer5(100);
   while (1)
   {
 	  if(timer1_flag == 1){
@@ -280,10 +275,6 @@ int main(void)
 		  updateLEDMatrix(index_led_matrix++);
 		  if(index_led_matrix >= MAX_LED_MATRIX) index_led_matrix = 0;
 		  setTimer4(5);
-	  }
-	  if(timer5_flag == 1){
-		  moveAnimation();
-		  setTimer5(100);
 	  }
 
     /* USER CODE END WHILE */
