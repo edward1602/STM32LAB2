@@ -173,7 +173,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   setTimer1(100);
   setTimer2(25);
-  setTimer3(100;
+  setTimer3(5);
   while (1)
   {
 	  if(timer1_flag == 1){
@@ -200,7 +200,8 @@ int main(void)
 		        hour = 0;
 		    }
 		 updateClockBuffer();
-		 setTimer3(100);
+		 setTimer3(5);
+	  }
 
     /* USER CODE END WHILE */
 
