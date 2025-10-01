@@ -33,3 +33,6 @@ com.sun.jna.platform.win32.Win32Exception: The system cannot find the file speci
 
 !ENTRY org.eclipse.cdt.core 1 0 2025-10-01 09:08:25.317
 !MESSAGE Indexed 'Lab_2_Exercise' (17 sources, 78 headers) in 1.67 sec: 3,636 declarations; 13,164 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.012%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-10-01 09:16:34.330
+!MESSAGE Indexed 'Lab_2_Exercise' (19 sources, 80 headers) in 0.873 sec: 4,876 declarations; 29,184 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0059%)
